@@ -137,11 +137,3 @@ Here are some screenshots showcasing the Bookstore Management System:
 Feel free to fork the repository, make changes, and submit pull requests. If you find bugs or have suggestions for improvements, open an issue in the repository.
 
 ---
-
-## 📚 **License**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Let me know if you'd like further refinements or any additional details!
