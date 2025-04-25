@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bookstore{% endblock %}</title>
+
+    <!-- Link to Bootstrap 5 CSS for responsive layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Link to Animate.css for adding subtle animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+    <!-- Custom styles to enhance the look and feel of the website -->
+    <style>
+        /* Body styling - general background and font */
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Container margin for better spacing from the top */
+        .container {
+            margin-top: 2rem;
+        }
+
+        /* Navbar customization - subtle shadow for elevation effect */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Button styling for primary actions (e.g., Add to Cart, Submit) */
+        .btn-primary {
+            background-color: #2563eb;
+            border-color: #2563eb;
+        }
+
+        /* Hover effect for primary buttons */
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+
+        /* Styling for secondary buttons (e.g., Cancel, Go Back) */
+        .btn-secondary {
+            background-color: #6b7280;
+            border-color: #6b7280;
+        }
+
+        /* Hover effect for secondary buttons */
+        .btn-secondary:hover {
+            background-color: #4b5563;
+            border-color: #4b5563;
+        }
+
+        /* Shadow effect for elements that need to stand out */
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Rounded corners for elements like buttons and cards */
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Section: Contains links to main areas of the site (Home, Cart, Admin Panel, Login) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <!-- Brand/Logo link to homepage -->
+            <a class="navbar-brand" href="{% url 'book_list' %}">Bookstore</a>
+            <!-- Navbar toggle button for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Books Link to list all books -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'book_list' %}">Books</a>
+                    </li>
+
+                    <!-- Conditionally show links for authenticated users -->
+                    {% if user.is_authenticated %}
+                        <!-- Cart link visible to logged-in users -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'cart' %}">Cart</a>
+                        </li>
+                        
+                        <!-- Admin Panel link only for superusers (admin) -->
+                        {% if user.is_superuser %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'admin_panel' %}">Admin Panel</a>
+                            </li>
+                        {% endif %}
+                        
+                        <!-- Logout link visible to logged-in users -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <!-- Login and Register links for non-authenticated users -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container">
+        <!-- Displaying messages like success or error alerts -->
+        {% for message in messages %}
+            <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-danger{% endif %} alert-dismissible fade show animate__animated animate__bounceIn mt-3" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+        
+        <!-- Dynamic Content Block -->
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Bootstrap 5 JavaScript for responsive behavior and dynamic elements -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
