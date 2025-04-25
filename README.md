@@ -1,6 +1,3 @@
-Sure! Here's an improved version of the README for your Bookstore Management System project, with a more detailed structure, better content, and the inclusion of your name and roll number.
-
----
 
 # 📚 **Bookstore Management System**
 
