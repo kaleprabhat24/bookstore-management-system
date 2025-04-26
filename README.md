@@ -118,9 +118,6 @@ BOOK-STORE-FINAL/
 └── README.md                    # Project documentation
 ```
 
-📸 Screenshots
-Here are some screenshots showcasing the Bookstore Management System:
-
 ---
 
 ## 📄 **Future Enhancements**
