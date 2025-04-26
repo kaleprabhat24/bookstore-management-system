@@ -119,10 +119,7 @@ BOOK-STORE-FINAL/
 
 📸 Screenshots
 Here are some screenshots showcasing the Bookstore Management System:
-![alt text](<Screenshot 2025-04-25 213811.png>)
-![alt text](<Screenshot 2025-04-25 214101.png>)
-![alt text](<Screenshot 2025-04-25 214219.png>)
-![alt text](<Screenshot 2025-04-25 213913.png>)
+
 ---
 
 ## 📄 **Future Enhancements**
