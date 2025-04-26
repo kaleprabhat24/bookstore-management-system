@@ -74,7 +74,7 @@ To get the project up and running locally, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/nilam-10/book-store-final
+   git clone https://github.com/kaleprabhat24/bookstore-management-system.git
    cd bookstore
    ```
 
